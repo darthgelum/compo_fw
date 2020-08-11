@@ -11,4 +11,4 @@ if(file_exists($file) && $uri != "/")
     exit();
 
 }
-echo file_get_contents("examples/web.html");
+include("examples/web.html");
