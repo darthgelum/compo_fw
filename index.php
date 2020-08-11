@@ -1,4 +1,5 @@
 <?php
+
 $uri = urldecode(
     parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
 );
@@ -7,7 +8,7 @@ if(file_exists($file) && $uri != "/")
 {
     header('Content-Type: text/javascript');
 
-    echo file_get_contents($file);
+    include($file);
     exit();
 
 }
