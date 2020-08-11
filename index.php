@@ -2,16 +2,13 @@
 $uri = urldecode(
     parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
 );
+$file = "./".$uri;
+if(file_exists($file) && $uri != "/")
+{
+    header('Content-Type: text/javascript');
 
-if (file_exists($uri)) {
-    header('Content-Description: File Transfer');
-    header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename="'.basename($uri).'"');
-    header('Expires: 0');
-    header('Cache-Control: must-revalidate');
-    header('Pragma: public');
-    header('Content-Length: ' . filesize($uri));
-    readfile($uri);
-    exit;
+    echo file_get_contents($file);
+    exit();
+
 }
-include("examples/web.html");
+echo file_get_contents("examples/web.html");
