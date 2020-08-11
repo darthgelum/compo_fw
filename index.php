@@ -1,2 +1,3 @@
 <?php
-include("/examples/web.html");
+echo "aa";
+include("examples/web.html");
